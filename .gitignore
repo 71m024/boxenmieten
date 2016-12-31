@@ -3,3 +3,4 @@
 Boxenmieten.iml
 autodeploy/
 docker-compose.yml
+/target/
