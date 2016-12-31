@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    build: .
+    image: 71m024/boxenmieten
+    ports:
+        - "8080:8080"
+        - "4848:4848"
+        - "9009:9009"
+    depends_on:
+        - mysql
+    links:
+        - mysql
+    volumes:
+        - ./autodeploy:/usr/local/glassfish4/glassfish/domains/domain1/autodeploy
+  mysql:
+    image: mysql:5.7.14
+    environment:
+        MYSQL_ROOT_PASSWORD: rootpwd
+        MYSQL_DATABASE: boxenmieten
+        MYSQL_USER: bmuser
+        MYSQL_PASSWORD: bmpwd

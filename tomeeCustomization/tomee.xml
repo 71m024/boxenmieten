@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <Resource id="bmDataSource" type="javax.sql.DataSource">
+        jdbcDriver = com.mysql.jdbc.Driver
+        jdbcUrl = jdbc:mysql://mysql:3306/boxenmieten?zeroDateTimeBehavior=convertToNull&amp;useSSL=false
+        password = ${MYSQL_PASSWORD}
+        userName = ${MYSQL_USER}
+        jtaManaged = true
+    </Resource>
+</tomee>

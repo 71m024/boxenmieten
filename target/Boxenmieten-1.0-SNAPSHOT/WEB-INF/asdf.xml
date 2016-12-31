@@ -1,0 +1,89 @@
+<ddd>
+
+      <url-mapping id="home"> 
+          <pattern value="/home" /> 
+          <view-id value="/pages/home.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="promotion"> 
+          <pattern value="/" /> 
+          <view-id value="/pages/promotion-page.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="users"> 
+          <pattern value="/user" /> 
+          <view-id value="/pages/user/index.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="new_user"> 
+          <pattern value="/user/new" /> 
+          <view-id value="/pages/user/edit.xhtml" />
+      </url-mapping>
+            
+      <url-mapping id="edit_user"> 
+          <pattern value="/user/edit/#{name}" />
+          <view-id value="/pages/user/edit.xhtml" />
+      </url-mapping>
+                
+      <url-mapping id="roles">
+          <pattern value="/role" />
+          <view-id value="/pages/role/index.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="new_role">
+          <pattern value="/role/new" />
+          <view-id value="/pages/role/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="edit_role">
+          <pattern value="/role/edit/#{/\\d+/ id}" />
+          <view-id value="/pages/role/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="permissions">
+          <pattern value="/permission" />
+          <view-id value="/pages/permission/index.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="new_permission">
+          <pattern value="/permission/new" />
+          <view-id value="/pages/permission/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="edit_permission">
+          <pattern value="/permission/edit/#{/\\d+/ id}" />
+          <view-id value="/pages/permission/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="locales"> 
+          <pattern value="/locale" /> 
+          <view-id value="/pages/locale/index.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="new_locale"> 
+          <pattern value="/locale/new" /> 
+          <view-id value="/pages/locale/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="edit_locale"> 
+          <pattern value="/locale/edit/#{/\\d+/ id}" />
+          <view-id value="/pages/locale/edit.xhtml" />
+      </url-mapping>
+      
+      <url-mapping id="login"> 
+          <pattern value="/login" />
+          <view-id value="/pages/login.xhtml" />
+      </url-mapping>  
+      
+<!--       <url-mapping id="viewCategory"> -->
+<!--           <pattern value="/store/#{ cat : bean.category }/" /> -->
+<!--           <view-id value="/faces/shop/store.jsf" /> -->
+<!--       </url-mapping> -->
+      
+<!--       <url-mapping id="viewItem"> -->
+<!--           <pattern value="/store/#{ cat : bean.category }/#{ iid : bean.itemId }/" /> -->
+<!--           <view-id value="/faces/shop/item.jsf" />  -->
+<!--           <action>#{bean.loadItem}</action> -->
+<!--       </url-mapping> -->
+
+</ddd>

@@ -1,0 +1,28 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pv="http://primefaces.org/venture"
+    xmlns:shiro="http://shiro.apache.org/tags">
+
+    <h:form id="menuform">
+        <pv:menu widgetVar="VentureMenu">
+            <p:menuitem id="home" value="Übersicht" outcome="/pages/home.xhtml"/>
+            <p:submenu id="example" label="Admin" rendered="#{shiroLoginBean.isPermittedOne(
+                        ['user:read','role:read','permission:read','role:locale']
+                    )}">
+                <p:menuitem id="users" value="Benutzer" outcome="/pages/user/index.xhtml"
+                            rendered="#{shiroLoginBean.isPermitted('user:read')}" icon="icon-user"/>
+                <p:menuitem id="roles" value="Rollen" outcome="/pages/role/index.xhtml"
+                            rendered="#{shiroLoginBean.isPermitted('role:read')}" icon="icon-user-group"/>
+                <p:menuitem id="permissions" value="Berechtigungen" outcome="/pages/permission/index.xhtml"
+                            rendered="#{shiroLoginBean.isPermitted('permission:read')}" icon="fa fa-key"/>
+                <p:menuitem id="locales" value="Standorte" outcome="/pages/locale/index.xhtml"
+                            rendered="#{shiroLoginBean.isPermitted('locale:read')}" icon="icon-location"/>
+            </p:submenu>
+        </pv:menu>
+    </h:form>
+
+</ui:composition>

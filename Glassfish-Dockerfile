@@ -1,0 +1,10 @@
+FROM glassfish:latest
+
+COPY autodeploy/Boxenmieten-1.0-SNAPSHOT.war /
+COPY start.sh /
+COPY glassfish-memory-cron /etc/cron.d/glassfish-memory-cron
+COPY memory_logger.sh /
+
+EXPOSE 8080 4848 9009
+
+ENTRYPOINT ["/start.sh"]

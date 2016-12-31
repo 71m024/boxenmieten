@@ -1,0 +1,1 @@
+INSERT INTO `GROUP` (NAME) VALUES ('TechAdmin');

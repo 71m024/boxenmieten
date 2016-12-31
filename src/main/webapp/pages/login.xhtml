@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:shiro="http://shiro.apache.org/tags">
+
+    <f:metadata>
+        <f:viewParam name="url" required="false" value="#{shiroLoginBean.redirectUrl}"/>
+    </f:metadata>
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Venture</title>
+        <ui:insert name="head" />
+    </h:head>
+
+    <h:body styleClass="YellowBack">
+        
+        <div class="Wid100 BMGrey" style="height:20rem;">
+            
+        </div>
+
+        <div class="Wid80 MarAuto" style="margin-top:-20rem;">
+            <div class="Wid70 MarAuto WidAutoOnMobile TexAlCenter">
+
+                <div class="Wid70 MarAuto WidAutoOnMobile">
+                    <div class="EmptyBox30"></div>
+                    <div class="Container100 TexAlCenter">
+                        <a href="dashboard-social.xhtml" class="DispBlock">
+                            <h:graphicImage name="images/webLogoSmall.jpg" library="boxenmieten" style="height:35px;" alt="logo"/>
+                        </a>
+                    </div>
+
+                    <h:form id="form">
+
+                        <shiro:notAuthenticated>
+                            <div class="EmptyBox30"></div>
+                            <div class="Card ui-fluid ShadowEffect">
+                                <div class="Wid100 FontLatoRegular Leaden Fs18" style="margin:2rem 0px;">Willkommen zurück, bitte hier anmelden!</div>
+                                <p:messages id="messages" />
+                                <div class="Container100">
+                                    <p:inputText placeholder="Benutzername" style="padding:15px !important;"
+                                                 value="#{shiroLoginBean.username}" />
+                                </div>
+                                <div class="Container100">
+                                    <p:password placeholder="Passwort" style="padding:15px !important;"
+                                                value="#{shiroLoginBean.password}" />
+                                </div>
+                                <div class="EmptyBox20"></div>
+                                <div class="Container100" >
+                                    <h:panelGrid columns="2" >
+                                        <p:outputLabel for="rememberMe" value="Angemeldet bleiben: "/>
+                                        <p:selectBooleanCheckbox value="#{shiroLoginBean.rememberMe}" id="rememberMe"/>
+                                    </h:panelGrid>
+                                </div>
+                                <div class="EmptyBox20"></div>
+                                <div class="Container100">
+                                    <p:commandButton value="Anmelden" styleClass="GreenButton" ajax="false" action="#{shiroLoginBean.actionLogin}"/>
+                                </div>
+                            </div>
+                        </shiro:notAuthenticated>
+
+                        <shiro:authenticated>
+                            <div class="EmptyBox20"></div>
+                            <p:commandButton value="Abmelden" styleClass="GreenButton" ajax="false" action="#{shiroLoginBean.actionLogout('/pages/home.xhtml')}" />
+                            <div class="EmptyBox30"></div>
+                        </shiro:authenticated>
+                    </h:form>
+                    
+                    <div class="EmptyBox20"></div>
+                    <div class="Wid100 FontLatoRegular Fs12"> <i class="fa fa-copyright DispInlBlock"></i> PrimeFaces Venture Theme And Layout <br/>All rights reserved.</div>
+                    <div class="EmptyBox30"></div>
+                </div>
+            </div>
+        </div>
+
+        <style>.ui-button-text, .ui-button-text-only .ui-button-text{padding:15px !important; transition:none !important;}</style>
+
+        <h:outputStylesheet name="css/core-layout.css" library="venture-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="venture-layout" />
+        <h:outputStylesheet name="css/animate.css" library="venture-layout" />
+        <h:outputStylesheet name="css/venture-layout.css" library="venture-layout" />
+        <h:outputStylesheet name="css/venture-font.css" library="venture-layout" />
+        <h:outputStylesheet name="css/layout.css" library="boxenmieten" />
+    </h:body>
+
+</html>

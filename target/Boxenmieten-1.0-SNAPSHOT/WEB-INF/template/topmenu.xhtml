@@ -1,0 +1,50 @@
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:shiro="http://shiro.apache.org/tags">
+
+
+    <!-- LAYOUT TOPBAR MENU -->
+
+    <h:form id="loginForm">
+    
+        <ul id="layout-topbar-menu-cover">
+
+            <li>
+                <a id="" class="topbar-link Animated03 Fright"><i class="icon-user"></i> <span>User</span></a>
+                <ul class="">
+                    <shiro:authenticated>
+                        <li>
+                            <a href="#" class="menulink TexAlCenter Fs14">
+                                <i class="icon-user Blue Fs30 Wid100 Fnone DispBlock MarBot10"></i>
+                                <shiro:principal type="ch.drshit.domain.model.BmUser" property="name" />
+                            </a>
+                        </li>
+                        <li>
+                            <a jsf:action="#{shiroLoginBean.actionLogout('/pages/home.xhtml')}"
+                               class="menulink TexAlCenter Fs14">
+                                <i class="icon-message Blue Fs30 Wid100 Fnone DispBlock MarBot10"></i>
+                                Abmelden
+                            </a>
+                        </li>
+                    </shiro:authenticated>
+                    <shiro:notAuthenticated>
+                        <li>
+                            <a jsf:outcome="/pages/login.xhtml" class="menulink TexAlCenter Fs14">
+                                <i class="icon-message Blue Fs30 Wid100 Fnone DispBlock MarBot10"></i>
+                                Anmelden
+                            </a>
+                        </li>
+                    </shiro:notAuthenticated>
+                </ul>
+            </li>
+        </ul>       
+        
+    </h:form>
+
+</ui:composition>
